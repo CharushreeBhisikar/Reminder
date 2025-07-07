@@ -20,8 +20,8 @@ app = Flask(__name__)
 reminders = []
 
 # Twilio credentials
-account_sid = 'your_sid'
-auth_token = 'your_token'
+account_sid = 'AC0f012f92bc8c43d5b420810731e82a98' # Replace with your Twilio SID
+auth_token = '1fdab63904962f08b1eda2a5f16e50f7'
 twilio_client = Client(account_sid, auth_token)
 from_number = 'whatsapp:+14155238886'
 
@@ -81,7 +81,7 @@ def check_reminders():
                 twilio_client.messages.create(
                     body=f"🔔 Reminder: {message}",
                     from_=from_number,
-                    to=number
+                    to='whatsapp:+919579793742'
                 )
                 print(f"✅ Reminder sent to {number}: {message}")
                 reminders.remove((rem_time, message, number))
